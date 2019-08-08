@@ -1,8 +1,12 @@
 <?php
-	require_once 'bd.php';//подключение к бд
+
+require_once 'bd.php';//подключение к бд
+if(isset($_POST['country']))
+{
 	$country = trim($_POST['country']);//получаем переменную из массива пост, убираем лишние пробелы
 	$country = htmlentities($country);
-	
+}
+
 if(isset($country))
 {
 		$sql = 'INSERT INTO countrys(country) VALUES(:country)';// ввод данных в бд через именнованные плейсхолдер
@@ -12,10 +16,7 @@ if(isset($country))
 		$smsg = "Страна успешно добавлена";
 }
 		
-else
-{
-			$fmsg = "Ошибка";
-}
+
 
 	//Можно использовать другой способ защиты пользовательского ввода, а именно строго ограничить ввод, создав массив с вариантами ввода.
 	
