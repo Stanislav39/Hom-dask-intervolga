@@ -29,7 +29,7 @@ if(isset($_POST['myCountry']))
 {
 	$result = $pdo->query('SELECT * FROM countrys');
 	
-		while($row = $result->fetch(PDO::FETCH_ASSOC))
+		while($row = $result->fetch(PDO::FETCH_ASSOC))//цикл вывода бд в таблицу
 		{
 			echo "<tr><td>" . $row['id'] . "</td><td>". $row['country'] . "</td><td>"  . $row['date'] ."</td></tr>";
 		}
